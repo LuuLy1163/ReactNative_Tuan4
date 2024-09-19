@@ -48,13 +48,21 @@ const TikiOk = () => {
       			<View style={[styles.backgroundTamtinh, styles.backgroundTamtinhLayout]} />
       			<Text style={[styles.bnCPhiu, styles.textTypo]}>Bạn có phiếu quà tặng Tiki/Got it/ Urbox?</Text>
         				<Text style={[styles.nhpTiY, styles.textTypo]}>Nhập tại đây?</Text>
-          					<Text style={[styles.text3, styles.text3Typo]}>{(gia*diceRolls).toFixed(3)} đ</Text>
+          					<Text style={[styles.text3, styles.text3Typo]}>
+                      {diceRolls.length === 0 || diceRolls.reduce((a, b) => a + b, 0) === 0 
+                        ? '0 đ' 
+                        : (gia * diceRolls.reduce((a, b) => a + b, 0)).toFixed(3) + ' đ'}
+                    </Text>
           					<Text style={[styles.tmTnh, styles.text3Typo]}>Tạm tính</Text>
           					<View style={styles.backGroundTienhanhdathang} />
           					<Text style={[styles.thnhTin, styles.text1Typo]}>Thành tiền</Text>
           					<View style={[styles.btnlogin1, styles.btnloginLayout]} />
           					<Text style={[styles.tinHnhT, styles.pDngTypo]}>TIẾN HÀNH ĐẶT HÀNG</Text>
-          					<Text style={styles.text4}>{(gia*diceRolls).toFixed(3)} đ</Text>
+          					<Text style={styles.text4}>
+                    {diceRolls.length === 0 || diceRolls.reduce((a, b) => a + b, 0) === 0 
+                        ? '0 đ' 
+                        : (gia * diceRolls.reduce((a, b) => a + b, 0)).toFixed(3) + ' đ'}
+                    </Text>
           					<View style={styles.tikiOkItem} />
           					</View>);
         				};
